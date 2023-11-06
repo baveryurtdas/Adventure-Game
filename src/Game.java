@@ -19,7 +19,10 @@ public class Game {
             System.out.println();
             System.out.println("-----Bölgeler : ");
             System.out.println("1 - Güveli Ev ---> Burası sizin için güvenli bir ev düşman yok.");
-            System.out.println("2 - Mağaza --> Silah veya zırh satın alabilirsiniz.");
+            System.out.println("2 - Esya Dükkanı --> Silah veya zırh satın alabilirsiniz.");
+            System.out.println("3 - Mağara --> Mağaraya git, ÖDÜL = YEMEK");
+            System.out.println("4 - Orman ---> Ormana git, ÖDÜL = ODUN");
+            System.out.println("5 - Nehir ---> Nehire git, ÖDÜL = SU");
             System.out.println("0 - Çıkış yap,oyunu sonlandır.");
             System.out.print("Lütfen gitmek istediğiniz bölgeyi seçiniz : ");
             int selectLocation = scan.nextInt();
@@ -34,8 +37,17 @@ public class Game {
                 case 2:
                     location = new ToolStore(player);
                     break;
+                case 3:
+                    location = new Cave(player);
+                    break;
+                case 4:
+                    location = new Forest(player);
+                    break;
+                case 5:
+                    location = new River(player);
+                    break;
                 default:
-                    location = new SafeHouse(player);
+                    System.out.println("Lütfen geçerli bir bölge giriniz !");
             }
 
             if (location == null) {
