@@ -70,8 +70,10 @@ public class Player {
         System.out.println("------------------------------------------------------------");
 
         System.out.println(
-                " Silahınız : " + this.getInventory().getWeapon().getName() +
-                        "\t Hasarınız  : " + this.getDamage() +
+                " Silah : " + this.getInventory().getWeapon().getName() +
+                        "\t Zırh : " + this.getInventory().getArmor().getName() +
+                        "\t Blok : " + this.getInventory().getArmor().getDefence() +
+                        "\t Hasar  : " + this.getDamage() +
                         "\t Sağlık : " + this.getHealth() +
                         "\t Para : " + getMoney());
         System.out.println("-----------------------------------------------------------");

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public  class Game {
+public class Game {
     public Scanner scan = new Scanner(System.in);
 
 
@@ -14,29 +14,39 @@ public  class Game {
 
 
         Location location = null;
-        while(true){
+        while (true) {
             player.printInfo();
             System.out.println();
             System.out.println("-----Bölgeler : ");
             System.out.println("1 - Güveli Ev ---> Burası sizin için güvenli bir ev düşman yok.");
             System.out.println("2 - Mağaza --> Silah veya zırh satın alabilirsiniz.");
-            System.out.println("Lütfen gitmek istediğiniz bölgeyi seçiniz : ");
+            System.out.println("0 - Çıkış yap,oyunu sonlandır.");
+            System.out.print("Lütfen gitmek istediğiniz bölgeyi seçiniz : ");
             int selectLocation = scan.nextInt();
-            switch (selectLocation){
-                case 1 :
+            switch (selectLocation) {
+                case 0:
+                    location = null;
+                    break;
+
+                case 1:
                     location = new SafeHouse(player);
                     break;
-                case 2 :
+                case 2:
                     location = new ToolStore(player);
                     break;
                 default:
                     location = new SafeHouse(player);
             }
 
-            if(!location.onLocation()){
+            if (location == null) {
+                System.out.println("Oyun bitti yine bekleriz.");
+                break;
+            }
+            if (!location.onLocation()) {
                 System.out.println("Game OVER !");
                 break;
             }
+
 
         }
 
