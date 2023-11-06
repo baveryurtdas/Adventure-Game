@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class Player {
 
 
@@ -10,10 +11,12 @@ public class Player {
 
     private String name;
     public Scanner scan = new Scanner(System.in);
+    private Inventory inventory;
 
 
     public Player(String name) {
         this.name = name;
+        this.inventory = new Inventory();
     }
 
     public void selectChar() {
@@ -46,31 +49,13 @@ public class Player {
             default:
                 initPlayer(new Samurai());
         }
-        System.out.println("Karakter : " + this.getCharName() +
-                "\t Hasar  : " + this.getDamage() +
-                "\t Sağlık : " + this.getHealth() +
-                "\t Para : " + getMoney());
+//        System.out.println("Karakter : " + this.getCharName() +
+//              "\t Hasar  : " + this.getDamage() +
+//            "\t Sağlık : " + this.getHealth() +
+//          "\t Para : " + getMoney());
     }
 
-    public void selectLocation(){
-        Location location = null;
-        System.out.println("Bölgeler : ");
-        System.out.println("1 - Güveli Ev");
-        System.out.println("2 - Mağaza");
-        System.out.println("Lütfen gitmek istediğiniz bölgeyi seçiniz : ");
-        int selectLocation = scan.nextInt();
-        switch (selectLocation){
-            case 1 :
-                location = new SafeHouse(this);
-                break;
-            case 2 :
-                location = new ToolStore(this);
-                break;
-            default:
-                location = new SafeHouse(this);
-        }
-
-        location.onLocation();
+    public void selectLocation() {
 
     }
 
@@ -81,8 +66,21 @@ public class Player {
         this.setCharName(gameChar.getName());
     }
 
+    public void printInfo() {
+        System.out.println("------------------------------------------------------------");
+
+        System.out.println(
+                " Silahınız : " + this.getInventory().getWeapon().getName() +
+                        "\t Hasarınız  : " + this.getDamage() +
+                        "\t Sağlık : " + this.getHealth() +
+                        "\t Para : " + getMoney());
+        System.out.println("-----------------------------------------------------------");
+
+    }
+
     public int getDamage() {
-        return damage;
+
+        return damage + this.getInventory().getWeapon().getDamage();
     }
 
     public void setDamage(int damage) {
@@ -119,5 +117,13 @@ public class Player {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
     }
 }
