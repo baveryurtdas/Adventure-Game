@@ -15,7 +15,7 @@ public class ToolStore extends NormalLoc {
             System.out.print("Seçiminiz : ");
             int selectCase = scan.nextInt();
             while (selectCase < 1 || selectCase > 3) {
-                System.out.println("Geçersiz değer, tekrar giriniz. ");
+                System.out.print("Geçersiz değer, tekrar giriniz :  ");
                 selectCase = scan.nextInt();
             }
             switch (selectCase) {
@@ -50,7 +50,7 @@ public class ToolStore extends NormalLoc {
         System.out.print("Bir silah seçiniz : ");
         int selectWeaponID = scan.nextInt();
         while (selectWeaponID < 0 || selectWeaponID > Weapon.weapons().length) {
-            System.out.println("Geçersiz değer, tekrar giriniz. ");
+            System.out.print("Geçersiz değer, tekrar giriniz : ");
             selectWeaponID = scan.nextInt();
         }
 
@@ -88,7 +88,7 @@ public class ToolStore extends NormalLoc {
         System.out.print("Bir zırh seçiniz : ");
         int selectArmorID = scan.nextInt();
         while (selectArmorID < 0 || selectArmorID > Armor.armors().length) {
-            System.out.println("Geçersiz değer, tekrar giriniz");
+            System.out.print("Geçersiz değer, tekrar giriniz : ");
             selectArmorID = scan.nextInt();
         }
 

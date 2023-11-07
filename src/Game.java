@@ -18,7 +18,7 @@ public class Game {
             player.printInfo();
             System.out.println();
             System.out.println("-----Bölgeler : ");
-            System.out.println("1 - Güveli Ev ---> Burası sizin için güvenli bir ev düşman yok.");
+            System.out.println("1 - Güvenli Ev ---> Burası sizin için güvenli bir ev düşman yok.");
             System.out.println("2 - Esya Dükkanı --> Silah veya zırh satın alabilirsiniz.");
             System.out.println("3 - Mağara --> Mağaraya git, ÖDÜL = YEMEK");
             System.out.println("4 - Orman ---> Ormana git, ÖDÜL = ODUN");
