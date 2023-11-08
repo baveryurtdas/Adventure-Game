@@ -6,7 +6,7 @@ public class Player {
 
     private int damage;
     private int health;
-    private int originalHealt;
+    private int originalHealth;
     private int money;
     private String charName;
 
@@ -63,7 +63,7 @@ public class Player {
     public void initPlayer(GameChar gameChar) {
         this.setDamage(gameChar.getDamage());
         this.setHealth(gameChar.getHealth());
-        this.setOriginalHealt(gameChar.getHealth());
+        this.setOriginalHealth(gameChar.getHealth());
         this.setMoney(gameChar.getMoney());
         this.setCharName(gameChar.getName());
     }
@@ -77,7 +77,7 @@ public class Player {
                         "\t Blok : " + this.getInventory().getArmor().getDefence() +
                         "\t Hasar  : " + this.getTotalDamage() +
                         "\t Sağlık : " + this.getHealth() +
-                        "\t Para : " + getMoney());
+                        "\t Para : " + this.getMoney());
         System.out.println("-----------------------------------------------------------");
 
     }
@@ -143,11 +143,11 @@ public class Player {
         return this.getInventory().getWeapon();
     }
 
-    public int getOriginalHealt() {
-        return originalHealt;
+    public int getOriginalHealth() {
+        return originalHealth;
     }
 
-    public void setOriginalHealt(int originalHealt) {
-        this.originalHealt = originalHealt;
+    public void setOriginalHealth(int originalHealth) {
+        this.originalHealth = originalHealth;
     }
 }
