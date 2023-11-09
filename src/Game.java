@@ -1,7 +1,9 @@
 import java.util.Scanner;
 
+
 public class Game {
     public Scanner scan = new Scanner(System.in);
+
 
 
     public void start() {
@@ -20,9 +22,9 @@ public class Game {
             System.out.println("-----Bölgeler : ");
             System.out.println("1 - Güvenli Ev ---> Burası sizin için güvenli bir ev düşman yok.");
             System.out.println("2 - Esya Dükkanı --> Silah veya zırh satın alabilirsiniz.");
-            System.out.println("3 - Mağara --> Mağaraya git, ÖDÜL = YEMEK");
-            System.out.println("4 - Orman ---> Ormana git, ÖDÜL = ODUN");
-            System.out.println("5 - Nehir ---> Nehire git, ÖDÜL = SU");
+            System.out.println("3 - Mağara --> Mağaraya git, ÖDÜL : " );
+            System.out.println("4 - Orman ---> Ormana git, ÖDÜL  : ");
+            System.out.println("5 - Nehir ---> Nehire git, ÖDÜL : ");
             System.out.println("0 - Çıkış yap,oyunu sonlandır.");
             System.out.print("Lütfen gitmek istediğiniz bölgeyi seçiniz : ");
             int selectLocation = scan.nextInt();

@@ -62,10 +62,10 @@ public abstract class BattleLoc extends Location {
                 }
             }
             if (this.getMonster().getHealth() < this.getPlayer().getHealth()) {
-                int count = 1;
                 System.out.println("Düşmanı yendiniz.");
-                System.out.println(this.getMonster().getAward() + " para kazandınız.");
-                this.getPlayer().setMoney(this.getPlayer().getMoney() + this.getMonster().getAward());
+                System.out.println(this.getMonster().getAwardMoney() + " para kazandınız.");
+                System.out.println(this.getAward() + " ödülünü kazandınız.");
+                this.getPlayer().setMoney(this.getPlayer().getMoney() + this.getMonster().getAwardMoney());
                 System.out.println("Güncel paranız : " + this.getPlayer().getMoney());
             } else {
                 return false;
@@ -100,7 +100,7 @@ public abstract class BattleLoc extends Location {
         System.out.println("-------------------");
         System.out.println("Sağlık : " + this.getMonster().getHealth());
         System.out.println("Hasar : " + this.getMonster().getDamage());
-        System.out.println("Para Ödülü : " + this.getMonster().getAward());
+        System.out.println("Para Ödülü : " + this.getMonster().getAwardMoney());
     }
 
     public int randomMonsterNumber() {

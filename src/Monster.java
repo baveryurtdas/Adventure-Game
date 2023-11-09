@@ -4,16 +4,16 @@ public class Monster {
 
     private int damage;
     private int health;
-    private int award;
+    private int awardMoney;
     private int orginalHealth;
 
-    public Monster(int id, String name, int damage, int health, int award) {
+    public Monster(int id, String name, int damage, int health, int awardMoney) {
         this.id = id;
         this.name = name;
         this.damage = damage;
         this.health = health;
         this.orginalHealth = health;
-        this.award = award;
+        this.awardMoney = awardMoney;
     }
 
     public String getName() {
@@ -51,12 +51,12 @@ public class Monster {
         this.health = health;
     }
 
-    public int getAward() {
-        return award;
+    public int getAwardMoney() {
+        return awardMoney;
     }
 
-    public void setAward(int award) {
-        this.award = award;
+    public void setAwardMoney(int awardMoney) {
+        this.awardMoney = awardMoney;
     }
 
     public int getOrginalHealth() {
