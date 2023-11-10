@@ -1,4 +1,3 @@
-import javax.sound.midi.Soundbank;
 import java.util.Random;
 
 public abstract class BattleLoc extends Location {
@@ -21,7 +20,7 @@ public abstract class BattleLoc extends Location {
         System.out.print("Savaşmak için <S> harfine bas, Kaçmak için <K> harfine bas : ");
         String selectBattle = scan.nextLine().toUpperCase();
         if (selectBattle.equals("S") && combat(monstNumber)) {
-            System.out.println(this.getName() + " tüm düşmanları öldürdünüz.");
+            System.out.println(this.getName() + " bölgesinin tüm düşmanları öldürdünüz.");
             return true;
         }
 
@@ -62,14 +61,33 @@ public abstract class BattleLoc extends Location {
                 }
             }
             if (this.getMonster().getHealth() < this.getPlayer().getHealth()) {
+                int count = 0;
                 System.out.println("Düşmanı yendiniz.");
                 System.out.println(this.getMonster().getAwardMoney() + " para kazandınız.");
-                System.out.println(this.getAward() + " ödülünü kazandınız.");
                 this.getPlayer().setMoney(this.getPlayer().getMoney() + this.getMonster().getAwardMoney());
                 System.out.println("Güncel paranız : " + this.getPlayer().getMoney());
-            } else {
-                return false;
+                if (i == monstNumber && this.getMonster().getName().equals("Zombi")) {
+                    this.getPlayer().getInventory().setFood(true);
+                    count++;
+                    System.out.println("Tebrikler yemek kazandınız.");
+                    this.getPlayer().getInventory().setFoodCount(count);
+                } else if (i == monstNumber && this.getMonster().getName().equals("Vampir")) {
+                    this.getPlayer().getInventory().setFireWood(true);
+                    count++;
+                    System.out.println("Tebrikler odun kazandınız.");
+                    this.getPlayer().getInventory().setFireWoodCount(count);
+                } else if (i == monstNumber && this.getMonster().getName().equals("Ayı")) {
+                    this.getPlayer().getInventory().setWater(true);
+                    count++;
+                    System.out.println("Tebrikler su kazandınız.");
+                    this.getPlayer().getInventory().setWaterCount(count);
+
+                } else {
+                    System.out.println("Buradan hiç birşey kazanamadınız.");
+                }
             }
+
+
         }
         return true;
     }

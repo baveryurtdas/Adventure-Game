@@ -50,10 +50,6 @@ public class Player {
             default:
                 initPlayer(new Samurai());
         }
-//        System.out.println("Karakter : " + this.getCharName() +
-//              "\t Hasar  : " + this.getDamage() +
-//            "\t Sağlık : " + this.getHealth() +
-//          "\t Para : " + getMoney());
     }
 
     public void selectLocation() {
@@ -77,9 +73,9 @@ public class Player {
                         "\t Hasar  : " + this.getTotalDamage() +
                         "\t Sağlık : " + this.getHealth() +
                         "\t Para : " + this.getMoney() +
-                        "\t Yemek  : " +
-                        "\t Odun  : " +
-                        "\t Su : ");
+                        "\t Yemek  : " + this.getInventory().getFoodCount() +
+                        "\t Odun  : " + this.getInventory().getFireWoodCount() +
+                        "\t Su : " + this.getInventory().getWaterCount());
         System.out.println("-----------------------------------------------------------");
 
     }

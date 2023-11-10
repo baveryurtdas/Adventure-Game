@@ -1,41 +1,74 @@
 public class Inventory {
 
+    private boolean water;
+    private int waterCount;
+    private boolean food;
+    private int foodCount;
+    private boolean fireWood;
+    private int fireWoodCount;
     private Weapon weapon;
     private Armor armor;
-    private String hasFood, hasFireWood, hasWater;
+
 
     public Inventory() {
         this.weapon = new Weapon("Yumruk", -1, 0, 0);
         this.armor = new Armor("Çıplak", -1, 0, 0);
+        this.water = false;
+        this.food = false;
+        this.fireWood = false;
+        this.waterCount = 0;
+        this.foodCount = 0;
+        this.fireWoodCount = 0;
+
     }
 
-
-    public String getHasFood() {
-        return hasFood;
+    public int getWaterCount() {
+        return waterCount;
     }
 
-    public void setHasFood(String hasFood) {
-
-        this.hasFood = hasFood;
+    public void setWaterCount(int waterCount) {
+        this.waterCount = waterCount;
     }
 
-    public String getHasFireWood() {
-        return hasFireWood;
+    public int getFoodCount() {
+        return foodCount;
     }
 
-    public void setHasFireWood(String hasFireWood) {
-        this.hasFireWood = hasFireWood;
+    public void setFoodCount(int foodCount) {
+        this.foodCount = foodCount;
     }
 
-    public String getHasWater() {
-        return hasWater;
+    public int getFireWoodCount() {
+        return fireWoodCount;
     }
 
-    public void setHasWater(String hasWater) {
-        this.hasWater = hasWater;
+    public void setFireWoodCount(int fireWoodCount) {
+        this.fireWoodCount = fireWoodCount;
     }
 
+    public boolean isWater() {
+        return water;
+    }
 
+    public void setWater(boolean water) {
+        this.water = water;
+    }
+
+    public boolean isFood() {
+        return food;
+    }
+
+    public void setFood(boolean food) {
+        this.food = food;
+    }
+
+    public boolean isFireWood() {
+        return fireWood;
+    }
+
+    public void setFireWood(boolean fireWood) {
+        this.fireWood = fireWood;
+    }
 
     public Weapon getWeapon() {
         return weapon;
