@@ -53,7 +53,7 @@ public abstract class BattleLoc extends Location {
 
                 if (playerFirst) {
                     if (selectCombat.equals("V")) {
-                        System.out.println("Siz vurdunuz.");
+                        System.out.println(this.getPlayer().getName() + " vurdu.");
                         this.monster.setHealth(this.monster.getHealth() - this.getPlayer().getTotalDamage());
                         afterHit();
 
@@ -63,7 +63,7 @@ public abstract class BattleLoc extends Location {
                 } else {
                     if (this.getMonster().getHealth() > 0) {
                         System.out.println();
-                        System.out.println("Canavar size vurdu.");
+                        System.out.println(this.getMonster().getName() + " size vurdu.");
                         int monsterDamage = this.getMonster().getDamage() - this.getPlayer().getInventory().getArmor().getDefence();
                         if (monsterDamage < 0) {
                             monsterDamage = 0;
