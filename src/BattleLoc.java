@@ -39,19 +39,28 @@ public abstract class BattleLoc extends Location {
 
     // Oyuncunun canavalarla savaştığı metot
     public boolean combat(int monstNumber) {
+
         for (int i = 1; i <= monstNumber; i++) {
             this.getMonster().setHealth(this.getMonster().getOrginalHealth());
             playerStats();
             monsterStats(i);
+
+            boolean playerFirst = Math.random() > 0.5;
             while (this.getPlayer().getHealth() > 0 && this.getMonster().getHealth() > 0) {
                 System.out.println();
                 System.out.print("<V>ur veya <K>aç : ");
                 String selectCombat = scan.nextLine().toUpperCase();
 
-                if (selectCombat.equals("V")) {
-                    System.out.println("Siz vurdunuz.");
-                    this.monster.setHealth(this.monster.getHealth() - this.getPlayer().getTotalDamage());
-                    afterHit();
+                if (playerFirst) {
+                    if (selectCombat.equals("V")) {
+                        System.out.println("Siz vurdunuz.");
+                        this.monster.setHealth(this.monster.getHealth() - this.getPlayer().getTotalDamage());
+                        afterHit();
+
+                    } else {
+                        return false;
+                    }
+                } else {
                     if (this.getMonster().getHealth() > 0) {
                         System.out.println();
                         System.out.println("Canavar size vurdu.");
@@ -61,10 +70,12 @@ public abstract class BattleLoc extends Location {
                         }
                         this.getPlayer().setHealth(this.getPlayer().getHealth() - monsterDamage);
                         afterHit();
+                        if (this.getPlayer().getHealth() <= 0) {
+                            System.out.println("Öldünüz.");
+                            return false;
+                        }
 
                     }
-                } else {
-                    return false;
                 }
             }
             if (this.getMonster().getHealth() < this.getPlayer().getHealth()) {
