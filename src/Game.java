@@ -1,16 +1,16 @@
 import java.util.Scanner;
 
-
+// Game sınıfı, macera oyununu başlatan ve oyunun temel akışını kontrol eden bir sınıftır.
 public class Game {
     public Scanner scan = new Scanner(System.in);
 
 
-
+    // oyunu başlatan metot
     public void start() {
         System.out.println("Macera oyununa hoş geldiniz. ");
         System.out.print("Lütfen bir isim giriniz :  ");
-        //String playerName = scan.nextLine();
-        Player player = new Player("Baver");
+        String playerName = scan.nextLine();
+        Player player = new Player(playerName);
         System.out.println("Sayın " + player.getName() + " adaya hoşgeldiniz.");
         player.selectChar();
 

@@ -1,3 +1,5 @@
+
+// Armor sınıfı, karakterin zırh özelliklerini temsil eder.
 public class Armor {
     private String name;
     private int id;
@@ -5,12 +7,14 @@ public class Armor {
     private int price;
 
     public Armor(String name, int id, int defence, int price) {
-        this.name = name;
-        this.id = id;
-        this.defence = defence;
-        this.price = price;
+        this.name = name; // Zırhın adını tutan degisken
+        this.id = id; // Zırhın benzersiz kimligini tutan degisken
+        this.defence = defence; // Zırhın savunma gücünü tutan degisken
+        this.price = price; // Zırhın fiyatını tutan degisken
     }
 
+
+    // Tanımlanan üç farklı zırh türünü içeren bir dizi döndüren statik metot
     public static Armor[] armors() {
         Armor[] armorList = new Armor[3];
         armorList[0] = new Armor("Hafif", 1, 1, 15);
@@ -19,6 +23,7 @@ public class Armor {
         return armorList;
     }
 
+    // Verilen bir zırh ID'sine sahip zırh nesnesini döndüren statik metot
     public static Armor getArmorObjByID(int id) {
         for (Armor a : Armor.armors()) {
             if (a.getId() == id) {

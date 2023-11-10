@@ -1,11 +1,13 @@
+// Monster sınıfı, oyun içindeki düşman karakterlerini temsil eden bir sınıftır.
+// Her bir canavarın benzersiz bir kimliği, ismi, verdiği hasar, sağlık puanı, ödül parası gibi özellikleri bulunur.
 public class Monster {
-    private int id;
-    private String name;
+    private int id; // Canavarın benzersiz kimliğini temsil eden değişken
+    private String name; // Canavarın adını temsil eden değişken
 
-    private int damage;
-    private int health;
-    private int awardMoney;
-    private int orginalHealth;
+    private int damage; // Canavarın verdiği hasarı temsil eden değişken
+    private int health; // Canavarın sağlık puanını temsil eden değişken
+    private int awardMoney; // Canavarın ödül parasını temsil eden değişken
+    private int orginalHealth; // Canavarın orijinal sağlık puanını temsil eden değişken
 
     public Monster(int id, String name, int damage, int health, int awardMoney) {
         this.id = id;
@@ -45,6 +47,7 @@ public class Monster {
     }
 
     public void setHealth(int health) {
+        // Sağlık puanı negatif olmaması için kontrol eklenmiştir.
         if (health < 0) {
             health = 0;
         }

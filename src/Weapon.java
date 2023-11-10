@@ -1,4 +1,6 @@
 public class Weapon {
+
+    //Weapon sınıfı, oyun içinde kullanılan silahları temsil eder.
     private String name;
     private int id;
     private int damage;
@@ -11,6 +13,7 @@ public class Weapon {
         this.price = price;
     }
 
+    //Oyun içinde kullanılacak silahları içeren bir dizi oluşturan metot.
     public static Weapon[] weapons() {
         Weapon[] weaponList = new Weapon[3];
         weaponList[0] = new Weapon("Tabanca", 1, 2, 15);
@@ -19,6 +22,7 @@ public class Weapon {
         return weaponList;
     }
 
+    //Verilen ID'ye sahip silahı döndüren metot.
     public static Weapon getWeaponObjByID(int id) {
 
         for (Weapon w : Weapon.weapons()) {

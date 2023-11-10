@@ -1,9 +1,12 @@
 import java.util.Random;
 
+//BattleLoc sınıfı, savaş alanlarını temsil eden soyut bir sınıftır.
+//Bu sınıf, oyuncunun canavarlarla savaştığı ve ödüller kazandığı özel bir konum türünü tanımlar.
 public abstract class BattleLoc extends Location {
-    private Monster monster;
-    private String award;
-    private int maxMonster;
+    private Monster monster; // Savaş alanındaki canavarı temsil eden değişken
+    private String award; // Savaş sonrası kazanılacak ödülün adını tutan değişken
+    private int maxMonster; // Savaş alanındaki maksimum canavar sayısını belirten değişken
+
 
     public BattleLoc(Player player, String name, Monster monster, String award, int maxMonster) {
         super(player, name);
@@ -12,6 +15,9 @@ public abstract class BattleLoc extends Location {
         this.maxMonster = maxMonster;
     }
 
+
+    //BattleLoc sınıfının üzerine yazılmış olan soyut metot.
+    //Bu metot, savaş alanındaki olayları işler ve savaşın sonucunu belirler.
     @Override
     boolean onLocation() {
         int monstNumber = this.randomMonsterNumber();
@@ -31,6 +37,7 @@ public abstract class BattleLoc extends Location {
         return true;
     }
 
+    // Oyuncunun canavalarla savaştığı metot
     public boolean combat(int monstNumber) {
         for (int i = 1; i <= monstNumber; i++) {
             this.getMonster().setHealth(this.getMonster().getOrginalHealth());
@@ -92,6 +99,7 @@ public abstract class BattleLoc extends Location {
         return true;
     }
 
+    //Her vuruş sonrasında ekrana canavar ve oyuncunun güncel sağlık durumlarını yazdıran metot.
 
     public void afterHit() {
         System.out.println("Canınız : " + this.getPlayer().getHealth());
@@ -99,6 +107,8 @@ public abstract class BattleLoc extends Location {
         System.out.println("------------");
     }
 
+
+    //Oyuncunun genel istatiklerini ekrana yazdıran metot.
     public void playerStats() {
         System.out.println("Oyuncu değerleri : ");
         System.out.println("------------");
@@ -113,6 +123,8 @@ public abstract class BattleLoc extends Location {
 
     }
 
+    // Canavarın genel özelliklerini ekrana yazdıran metot.
+
     public void monsterStats(int i) {
         System.out.println(i + ". " + this.getMonster().getName() + " Değerleri");
         System.out.println("-------------------");
@@ -121,6 +133,7 @@ public abstract class BattleLoc extends Location {
         System.out.println("Para Ödülü : " + this.getMonster().getAwardMoney());
     }
 
+    //Bölgede çıkacak olan canavarların random değerini atama.
     public int randomMonsterNumber() {
         Random r = new Random();
         return r.nextInt(this.getMaxMonster()) + 1;

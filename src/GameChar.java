@@ -1,9 +1,11 @@
+
+//GameChar sınıfı, oyun karakterlerinin genel özelliklerini temsil eden soyut bir sınıftır.
 public abstract class GameChar {
-    private int id;
-    private String name;
-    private int damage;
-    private int health;
-    private int money;
+    private int id; // Karakterin benzersiz kimliğini tutan değişken
+    private String name; // Karakterin adını tutan değişken
+    private int damage; // Karakterin verdiği hasarı tutan değişken
+    private int health; // Karakterin sağlık puanını tutan değişken
+    private int money; // Karakterin sahip olduğu para miktarını tutan değişken
 
     public GameChar(int id, String name, int damage, int health, int money) {
         this.id = id;

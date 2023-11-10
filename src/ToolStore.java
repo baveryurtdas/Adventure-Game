@@ -1,9 +1,13 @@
 public class ToolStore extends NormalLoc {
 
+    //ToolStore sınıfı, oyuncunun mağaza konumunu temsil eden bir sınıftır.
+    //Silahlar ve zırhlar satın alınabilir.
     public ToolStore(Player player) {
         super(player, "Mağaza");
     }
 
+    //Mağaza konumunda gerçekleşen olayları işleyen metot.
+    //Silahlar ve zırhlar satın alınabilir.
     @Override
     public boolean onLocation() {
         boolean showMenu = true;
@@ -38,6 +42,7 @@ public class ToolStore extends NormalLoc {
         return true;
     }
 
+    //Mağazadaki silahları listeleyen metot.
     public void printWeapon() {
         System.out.println("-----------Silahlar-----------");
         for (Weapon w : Weapon.weapons()) {
@@ -46,6 +51,7 @@ public class ToolStore extends NormalLoc {
         System.out.println("0 - Çıkış Yap");
     }
 
+    //Oyuncunun silah satın almasını sağlayan metot.
     public void buyWeapon() {
         System.out.print("Bir silah seçiniz : ");
         int selectWeaponID = scan.nextInt();
@@ -75,6 +81,7 @@ public class ToolStore extends NormalLoc {
 
     }
 
+    //Mağazadaki zırhları listeleyen metot.
     public void printArmor() {
         System.out.println("-----------Zırhlar-----------");
         for (Armor a : Armor.armors()) {
@@ -84,6 +91,8 @@ public class ToolStore extends NormalLoc {
 
     }
 
+
+    //Oyuncunun zırh satın almasını sağlayan metot.
     public void buyArmor() {
         System.out.print("Bir zırh seçiniz : ");
         int selectArmorID = scan.nextInt();

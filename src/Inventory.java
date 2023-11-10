@@ -1,3 +1,6 @@
+
+// Inventory sınıfı, oyuncunun envanterini temsil eden bir sınıftır.
+// Bu sınıf, su, yiyecek, odun gibi kaynakları, silah ve zırh gibi ekipmanları yönetir.
 public class Inventory {
 
     private boolean water;

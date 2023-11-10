@@ -1,18 +1,22 @@
 import java.util.Scanner;
 
+//Player sınıfı, oyuncu karakterini temsil eden bir sınıftır.
+//Oyuncunun hasar, sağlık, para, karakter adı gibi özellikleri ve envanteri bulunur.
+
 
 public class Player {
 
 
-    private int damage;
-    private int health;
-    private int originalHealth;
-    private int money;
-    private String charName;
+    private int damage; // Oyuncunun verdiği hasarı temsil eden değişken
+    private int health; // Oyuncunun sağlık puanını temsil eden değişken
+    private int originalHealth; // Oyuncunun orijinal sağlık puanını temsil eden değişken
+    private int money; // Oyuncunun sahip olduğu para miktarını temsil eden değişken
+    private String charName; // Oyuncunun karakter adını temsil eden değişken
 
-    private String name;
+    private String name; // Oyuncunun adını temsil eden değişken
     public Scanner scan = new Scanner(System.in);
-    private Inventory inventory;
+    private Inventory inventory; // Oyuncunun envanterini temsil eden değişken
+
 
 
     public Player(String name) {
@@ -20,6 +24,7 @@ public class Player {
         this.inventory = new Inventory();
     }
 
+    //Oyuncunun karakter seçimini gerçekleştiren metot.
     public void selectChar() {
 
         GameChar[] charList = {new Samurai(), new Archer(), new Knight()};
@@ -52,10 +57,8 @@ public class Player {
         }
     }
 
-    public void selectLocation() {
 
-    }
-
+    //Oyuncunun başlangıç bilgilerini ayarlayan metot.
     public void initPlayer(GameChar gameChar) {
         this.setDamage(gameChar.getDamage());
         this.setHealth(gameChar.getHealth());
@@ -64,6 +67,8 @@ public class Player {
         this.setCharName(gameChar.getName());
     }
 
+
+    //Oyuncunun bilgilerini ekrana yazdıran metot.
     public void printInfo() {
         System.out.println("------------------------------------------------------------");
         System.out.println(
@@ -80,7 +85,7 @@ public class Player {
 
     }
 
-
+    //Oyuncunun toplam hasarını hesaplayan metot.
     public int getTotalDamage() {
         return damage + this.getInventory().getWeapon().getDamage();
 
@@ -100,6 +105,7 @@ public class Player {
     }
 
     public void setHealth(int health) {
+        // Sağlık puanı negatif olmaması için kontrol eklenmiştir.
         if (health < 0) {
             health = 0;
         }
