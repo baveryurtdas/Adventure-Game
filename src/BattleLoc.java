@@ -100,8 +100,8 @@ public abstract class BattleLoc extends Location {
                     System.out.println("Tebrikler su kazandınız.");
                     this.getPlayer().getInventory().setWaterCount(count);
 
-                } else {
-                    System.out.println("Buradan hiç birşey kazanamadınız.");
+                } else if (i == monstNumber && this.getMonster().getName().equals("Yılan")) {
+
                 }
             }
 
@@ -173,4 +173,5 @@ public abstract class BattleLoc extends Location {
     public void setMaxMonster(int maxMonster) {
         this.maxMonster = maxMonster;
     }
+
 }
