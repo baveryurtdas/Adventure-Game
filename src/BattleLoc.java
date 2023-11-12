@@ -6,6 +6,7 @@ public abstract class BattleLoc extends Location {
     private Monster monster; // Savaş alanındaki canavarı temsil eden değişken
     private String award; // Savaş sonrası kazanılacak ödülün adını tutan değişken
     private int maxMonster; // Savaş alanındaki maksimum canavar sayısını belirten değişken
+    public Random random = new Random();
 
 
     public BattleLoc(Player player, String name, Monster monster, String award, int maxMonster) {
@@ -101,7 +102,7 @@ public abstract class BattleLoc extends Location {
                     this.getPlayer().getInventory().setWaterCount(count);
 
                 } else if (i == monstNumber && this.getMonster().getName().equals("Yılan")) {
-
+                    getSnake();
                 }
             }
 
@@ -149,6 +150,70 @@ public abstract class BattleLoc extends Location {
         Random r = new Random();
         return r.nextInt(this.getMaxMonster()) + 1;
     }
+
+    public void getSnake() {
+        int randomNumber = random.nextInt(100);
+        if (randomNumber <= 15) {
+            //Silah kazanma durumu
+            weaponRate();
+        } else if (randomNumber <= 30) {
+            //Zırh kazanma durumu
+            armorRate();
+        } else if (randomNumber <= 55) {
+            //Para kazanma durumu
+            moneyRate();
+        } else {
+            System.out.println("Hiç birşey kazanamadınız.");
+        }
+    }
+
+    public void weaponRate() {
+        int randomNum = random.nextInt(1, 101);
+        if (randomNum <= 50) {
+            System.out.println("Tabanca kazandınız.");
+            this.getPlayer().getInventory().setWeapon(Weapon.getWeaponObjByID(1));
+        } else if (randomNum <= 80) {
+            System.out.println("Kılıç kazandınız.");
+            this.getPlayer().getInventory().setWeapon(Weapon.getWeaponObjByID(2));
+        } else if (randomNum <= 100) {
+            System.out.println("Tüfek kazandınız.");
+            this.getPlayer().getInventory().setWeapon(Weapon.getWeaponObjByID(3));
+        }
+    }
+
+    public void armorRate() {
+        int randomNum = random.nextInt(1, 101);
+        if (randomNum <= 50) {
+            System.out.println("Hafif zırh kazandınız.");
+            this.getPlayer().getInventory().setArmor(Armor.getArmorObjByID(1));
+        } else if (randomNum <= 80) {
+            System.out.println("Orta zırh kazandınız.");
+            this.getPlayer().getInventory().setArmor(Armor.getArmorObjByID(2));
+        } else if (randomNum <= 100) {
+            System.out.println("Ağır zırh kazandınız.");
+            this.getPlayer().getInventory().setArmor(Armor.getArmorObjByID(3));
+        }
+    }
+
+    public void moneyRate() {
+        int randomNum = random.nextInt(1, 101);
+        int money = 0;
+        if (randomNum <= 50) {
+            money = 1;
+            System.out.println("1 para kazandınız.");
+            this.getPlayer().setMoney(getPlayer().getMoney() + money);
+
+        } else if (randomNum <= 80) {
+            money = 5;
+            System.out.println("5 para kazandınız.");
+            this.getPlayer().setMoney(getPlayer().getMoney() + money);
+        } else if (randomNum <= 100) {
+            money = 10;
+            System.out.println("10 para kazandınız.");
+            this.getPlayer().setMoney(getPlayer().getMoney() + money);
+        }
+    }
+
 
     public Monster getMonster() {
         return monster;
